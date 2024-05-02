@@ -1,1 +1,1 @@
-"# Blue-Bricks DevOps Assignment" 
+# Blue-Bricks DevOps Assignment
