@@ -1,0 +1,9 @@
+{
+  "proxies": {
+    "default": {
+      "httpProxy": "http://localhost:5000",
+      "httpsProxy": "https://localhost:5000",
+      "noProxy": ""
+    }
+  }
+ }
