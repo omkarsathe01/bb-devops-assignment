@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels:
+    name: db
+  namespace: vote
+spec:
+  selector:
+    name: db-deployment-pod
+    app: demo-voting-app
+  type: ClusterIP
+  ports:
+  - port: 5432
+    targetPort: 5432

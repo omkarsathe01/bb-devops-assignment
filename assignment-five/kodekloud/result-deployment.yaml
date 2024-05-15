@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-deployment
+  labels:
+    name: result-deployment
+    app: demo-voting-app
+  namespace: vote
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: result-deployment-pod
+      app: demo-voting-app
+  template:
+    metadata:
+      name: result-deployment-pod
+      labels:
+        name: result-deployment-pod
+        app: demo-voting-app
+    spec:
+      containers:
+      - name: result-deployment
+        image: kodekloud/examplevotingapp_result:before

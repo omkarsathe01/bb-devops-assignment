@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+  namespace: vote
+  labels:
+    name: db
+    app: demo-voting-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: db-deployment-pod
+      app: demo-voting-app
+  template:
+    metadata:
+      name: db-deployment-pod
+      labels:
+        name: db-deployment-pod
+        app: demo-voting-app
+    spec:
+      containers:
+      - name: db
+        image: postgres:9.4
+        env:
+        - name: POSTGRES_HOST_AUTH_METHOD
+          value: "trust"
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: db-data
+      volumes:
+      - name: db-data
+        emptyDir: {}
