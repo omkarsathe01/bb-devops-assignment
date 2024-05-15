@@ -1,6 +1,6 @@
 echo "Creating Services"
 
-docker create -f db-service.yaml
-docker create -f redis-service.yaml
-docker create -f result-service.yaml
-docker create -f vote-service.yaml
+kubectl create -f db-service.yaml
+kubectl create -f redis-service.yaml
+kubectl create -f result-service.yaml
+kubectl create -f vote-service.yaml
