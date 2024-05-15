@@ -6,7 +6,10 @@ pipeline {
     stage('Clone Repository'){
       steps {
         git url:'https://github.com/omkarsathe01/bb-devops-assignment', branch:'main'
-        sh 'ls -ltra'
+        sh '''
+        ls -ltra
+        cd assignment-five/kodekloud/
+        '''
       }
     }
 
