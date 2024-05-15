@@ -3,6 +3,13 @@ pipeline {
   agent any 
 
   stages {
+    stage('Clone Repository'){
+      steps {
+        git url:'https://github.com/omkarsathe01/bb-devops-assignment', branch:'main'
+        sh 'ls -ltra'
+      }
+    }
+
     stage('Create Deployments'){
       steps {
         sh '''
