@@ -1,0 +1,24 @@
+pipeline {
+
+  agent any 
+
+  stages {
+    stage('Create Deployments'){
+      steps {
+        sh '''
+        chmod 777 deployments-script.sh
+        ./deployments-script.sh
+        '''
+      }
+    }
+
+    stage('Create Services'){
+      steps {
+        sh '''
+        chmod 777 services-script.sh
+        ./services-script.sh
+        '''
+      }
+    }
+  }
+}
