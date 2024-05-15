@@ -9,6 +9,8 @@ pipeline {
         sh '''
         ls -ltra
         cd assignment-five/kodekloud/
+        pwd
+        ls -ltra
         '''
       }
     }
