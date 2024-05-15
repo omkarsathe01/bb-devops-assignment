@@ -6,17 +6,17 @@ pipeline {
     stage('Clone Repository'){
       steps {
         git url:'https://github.com/omkarsathe01/bb-devops-assignment', branch:'main'
+      }
+    }
+
+    stage('Create Deployments'){
+      steps {
         sh '''
         ls -ltra
         cd assignment-five/kodekloud/
         pwd
         ls -ltra
         '''
-      }
-    }
-
-    stage('Create Deployments'){
-      steps {
         sh '''
         chmod 777 deployments-script.sh
         ./deployments-script.sh
