@@ -1,23 +1,25 @@
 pipeline {
-
   agent any 
 
   stages {
     stage('Clone Repository'){
       steps {
-        git url:'https://github.com/omkarsathe01/bb-devops-assignment', branch:'main'
+        git url: 'https://github.com/omkarsathe01/bb-devops-assignment', branch: 'main'
       }
     }
 
     stage('Create Deployments'){
       steps {
         sh '''
+        echo "Current Directory:"
+        pwd
+        echo "Listing files:"
         ls -ltra
         cd assignment-five/kodekloud/
+        echo "Changed Directory:"
         pwd
+        echo "Listing files:"
         ls -ltra
-        '''
-        sh '''
         chmod 777 deployments-script.sh
         ./deployments-script.sh
         '''
@@ -27,6 +29,7 @@ pipeline {
     stage('Create Services'){
       steps {
         sh '''
+        cd assignment-five/kodekloud/
         chmod 777 services-script.sh
         ./services-script.sh
         '''
